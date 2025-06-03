@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anket Sayfası</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.6em;
+        }
+
+        .question {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+            .question.active {
+                display: block;
+            }
+
+            .question h3 {
+                font-size: 1.1em;
+                margin-bottom: 15px;
+            }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+        }
+
+            .options button {
+                flex: 1;
+                padding: 12px;
+                margin: 0 5px;
+                border: none;
+                border-radius: 8px;
+                font-size: 1em;
+                cursor: pointer;
+                color: #fff;
+                transition: background 0.3s ease;
+            }
+
+        .yes {
+            background-color: #4CAF50;
+        }
+
+        .no {
+            background-color: #f44336;
+        }
+
+        .options button:hover {
+            opacity: 0.9;
+        }
+
+        #resultContainer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #resultBtn {
+            display: none;
+            background-color: #2196F3;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .options {
+                flex-direction: column;
+            }
+
+                .options button {
+                    margin: 5px 0;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SORULAR</h1>
+
+    <div class="question active">
+        <h3>1. Günlük spor yapıyor musunuz?</h3>
+        <div class="options">
+            <button class="yes" onclick="nextQuestion()">Evet</button>
+            <button class="no" onclick="nextQuestion()">Hayır</button>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>2. Günde en az 2 litre su içiyor musunuz?</h3>
+        <div class="options">
+            <button class="yes" onclick="nextQuestion()">Evet</button>
+            <button class="no" onclick="nextQuestion()">Hayır</button>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>3. Kitap okumayı sever misiniz?</h3>
+        <div class="options">
+            <button class="yes" onclick="nextQuestion()">Evet</button>
+            <button class="no" onclick="nextQuestion()">Hayır</button>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>4. Sağlıklı beslenmeye dikkat eder misiniz?</h3>
+        <div class="options">
+            <button class="yes" onclick="nextQuestion()">Evet</button>
+            <button class="no" onclick="nextQuestion()">Hayır</button>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>5. Haftada en az bir kez doğa yürüyüşü yapar mısınız?</h3>
+        <div class="options">
+            <button class="yes" onclick="showResult()">Evet</button>
+            <button class="no" onclick="showResult()">Hayır</button>
+        </div>
+    </div>
+
+    <div id="resultContainer">
+        <a id="resultBtn" href="affa.html">Sonuçları Gör</a>
+    </div>
+
+    <script>
+        let current = 0;
+        const questions = document.querySelectorAll('.question');
+
+        function nextQuestion() {
+            if (current < questions.length - 1) {
+                questions[current].classList.remove('active');
+                current++;
+                questions[current].classList.add('active');
+            }
+        }
+
+        function showResult() {
+            questions[current].classList.remove('active');
+            document.getElementById('resultBtn').style.display = 'inline-block';
+        }
+    </script>
+
+</body>
+</html>
