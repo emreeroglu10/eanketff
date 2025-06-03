@@ -45,16 +45,21 @@ body {
 }
 
 .flowers {
-  position: relative;
-  transform: scale(0.9);
+    position: relative;
+    transform: scale(0.9);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .flower {
-  position: absolute;
-  bottom: 10vmin;
-  transform-origin: bottom center;
-  z-index: 10;
-  --fl-speed: 0.8s;
+    position: absolute;
+    bottom: 10vmin;
+    transform-origin: bottom center;
+    z-index: 10;
+    --fl-speed: 0.8s;
+    padding: 1rem;
 }
 
 .flower--1 {
@@ -144,8 +149,9 @@ body {
 }
 
 .flower__leafs {
-  position: relative;
-  animation: blooming-flower 2s backwards;
+    position: relative;
+    animation: blooming-flower 2s backwards;
+    transform: translateZ(0);
 }
 
 .flower__leafs--1 {
@@ -1212,5 +1218,32 @@ body {
 .not-loaded * {
   animation-play-state: paused !important;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .flowers {
+        flex-direction: column; /* Mobilde dikey hizalama */
+    }
+
+    .flower {
+        margin-bottom: 1rem;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .flowers {
+        justify-content: space-around;
+    }
+}
+
 
 /*# sourceMappingURL=style.css.map */
