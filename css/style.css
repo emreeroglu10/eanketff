@@ -1218,32 +1218,3 @@ body {
 .not-loaded * {
   animation-play-state: paused !important;
 }
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-
-    .flowers {
-        flex-direction: column; /* Mobilde dikey hizalama */
-    }
-
-    .flower {
-        margin-bottom: 1rem;
-    }
-
-    .title {
-        font-size: 24px;
-    }
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-    .flowers {
-        justify-content: space-around;
-    }
-}
-
-
-/*# sourceMappingURL=style.css.map */
